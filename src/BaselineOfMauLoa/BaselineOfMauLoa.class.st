@@ -12,13 +12,19 @@ BaselineOfMauLoa >> baseline: spec [
 	<baseline>
 	
 	spec for: #'common' do: [ 
-		self markdown: spec.
-		self tealight: spec. 
-		]	
+		self 
+			microdown: spec;
+			tealight: spec. 
+		
+		spec 
+			package: 'MauLoa-Core';
+			package: 'MauLoa-Web' with: [ spec requires: #('MauLoa-Core') ]
+		
+	]	
 ]
 
 { #category : #baselines }
-BaselineOfMauLoa >> markdown: spec [
+BaselineOfMauLoa >> microdown: spec [
 
 	spec
 		baseline: 'Microdown'
