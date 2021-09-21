@@ -14,7 +14,7 @@ BaselineOfMauLoa >> baseline: spec [
 	spec for: #'common' do: [ 
 		self 
 			microdown: spec;
-			tealight: spec. 
+			teapot: spec. 
 		
 		spec 
 			package: 'MauLoa-Core';
@@ -23,7 +23,7 @@ BaselineOfMauLoa >> baseline: spec [
 	]	
 ]
 
-{ #category : #baselines }
+{ #category : #utilities }
 BaselineOfMauLoa >> microdown: spec [
 
 	spec
@@ -34,13 +34,24 @@ BaselineOfMauLoa >> microdown: spec [
 					repository: 'github://pillar-markup/Microdown:dev/src' ]
 ]
 
-{ #category : #baselines }
+{ #category : #utilities }
 BaselineOfMauLoa >> tealight: spec [
 
 	spec
 		baseline: 'Tealight'
       with: [ 
+				spec					
+					repository: 'github://astares/Tealight:master/src';
+					loads: #('default') ]
+]
+
+{ #category : #utilities }
+BaselineOfMauLoa >> teapot: spec [
+
+	spec
+		baseline: 'Teapot'
+      with: [ 
 				spec
-					loads: #('default');
-					repository: 'github://astares/Tealight:master/src' ]
+					repository: 'github://zeroflag/Teapot:master/source';
+					loads: #( 'Deployment' ) ]
 ]
