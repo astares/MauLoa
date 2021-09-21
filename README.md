@@ -15,6 +15,6 @@ wget -O- get.pharo.org/64/90+vm | bash
 ```Smalltalk
   Metacello new
       baseline:'MauLoa';
-      repository: 'github://astares/MauLoa:master/src';
+      repository: 'github://astares/MauLoa:main/src';
       load
 ```
