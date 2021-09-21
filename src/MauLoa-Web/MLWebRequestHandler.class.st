@@ -1,5 +1,8 @@
+"
+A handler for web requests
+"
 Class {
-	#name : #MLWebHandler,
+	#name : #MLWebRequestHandler,
 	#superclass : #Object,
 	#instVars : [
 		'teapot'
@@ -8,39 +11,46 @@ Class {
 }
 
 { #category : #'class initialization' }
-MLWebHandler class >> initialize [ 
+MLWebRequestHandler class >> initialize [ 
 
 	self install
 ]
 
 { #category : #registration }
-MLWebHandler class >> install [
+MLWebRequestHandler class >> install [
 	<script>
 	
 	self installOn: MLWebserver teapot
 ]
 
 { #category : #registration }
-MLWebHandler class >> installOn: aTeapot [
+MLWebRequestHandler class >> installOn: aTeapot [
 
-	^ self new
+	^ (self new)
 			installOn: aTeapot;
 			yourself
 ]
 
 { #category : #registration }
-MLWebHandler >> installOn: aTeapot [
+MLWebRequestHandler >> installOn: aTeapot [
 	<script: 'self install'>
 	
 	teapot := aTeapot.	
 	teapot 
 		removeAllDynamicRoutes;
 		GET: '/' -> [ :req | ZnResponse ok: (ZnStringEntity text: 'Welcome to MauLoa') ];
+		GET: '/<book>' -> [ :req | self responseForBook: (req at: #book) ]; 
 		GET: '/<book>/<id>' -> [ :req | self responseForBook: (req at: #book) page: (req at: #id) ] 
 ]
 
 { #category : #registration }
-MLWebHandler >> responseForBook: book page: page [
+MLWebRequestHandler >> responseForBook: book [  
+
+	book inspect
+]
+
+{ #category : #registration }
+MLWebRequestHandler >> responseForBook: book page: page [
 
 	(book -> page) inspect
 ]

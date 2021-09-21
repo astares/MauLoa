@@ -9,5 +9,5 @@ Class {
 
 { #category : #'code-critics' }
 ManifestMauLoaWeb class >> ruleUncommonMessageSendRuleV1FalsePositive [
-	^ #(#(#(#RGClassDefinition #(#MLWebHandler)) #'2021-09-21T22:03:00.888026+02:00') )
+	^ #(#(#(#RGClassDefinition #(#MLWebRequestHandler)) #'2021-09-21T22:03:00.888026+02:00') )
 ]
