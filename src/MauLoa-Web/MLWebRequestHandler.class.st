@@ -38,7 +38,7 @@ MLWebRequestHandler >> installOn: aTeapot [
 	teapot := aTeapot.	
 	teapot 
 		removeAllDynamicRoutes;
-		GET: '/' -> [ :req | ZnResponse ok: (ZnStringEntity text: 'Welcome to MauLoa') ];
+		GET: '/' -> [ :req | ZnResponse ok: (ZnEntity html: '<h1>Welcome to MauLoa</h1>') ];
 		GET: '/<book>' -> [ :req | self responseForBook: (req at: #book) ]; 
 		GET: '/<book>/<id>' -> [ :req | self responseForBook: (req at: #book) page: (req at: #id) ] 
 ]
