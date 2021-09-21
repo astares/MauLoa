@@ -41,6 +41,13 @@ MLWebserver class >> defaultServer [
 	^ DefaultServer ifNil: [ DefaultServer := self new ]
 ]
 
+{ #category : #'class initialization' }
+MLWebserver class >> reset [
+	<script>
+	
+	DefaultServer := nil
+]
+
 { #category : #running }
 MLWebserver class >> start [
 	"Start the server"
@@ -70,4 +77,37 @@ MLWebserver class >> stop [
 MLWebserver class >> teapot [
 
 	^self defaultServer teapot
+]
+
+{ #category : #'private - initialization' }
+MLWebserver >> initTeapot [
+
+	teapot := Teapot configure: {
+		#port -> self class defaultPort
+ 	}
+]
+
+{ #category : #initialization }
+MLWebserver >> initialize [
+
+	super initialize.
+	self initTeapot
+]
+
+{ #category : #running }
+MLWebserver >> start [
+
+	teapot start
+]
+
+{ #category : #running }
+MLWebserver >> stop [
+
+	teapot stop
+]
+
+{ #category : #accessing }
+MLWebserver >> teapot [
+
+	^teapot
 ]
