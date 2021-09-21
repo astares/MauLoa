@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'book'
 	],
-	#category : #'MauLoad-Core-Tests-Model'
+	#category : #'MauLoa-Core-Tests-Model'
 }
 
 { #category : #running }

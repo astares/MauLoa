@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'shelf'
 	],
-	#category : #'MauLoad-Core-Tests-Model'
+	#category : #'MauLoa-Core-Tests-Model'
 }
 
 { #category : #running }
