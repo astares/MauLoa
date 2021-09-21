@@ -18,8 +18,16 @@ BaselineOfMauLoa >> baseline: spec [
 		
 		spec 
 			package: 'MauLoa-Core';
-			package: 'MauLoa-Web' with: [ spec requires: #('MauLoa-Core') ]
+			package: 'MauLoa-Web' with: [ spec requires: #('MauLoa-Core') ];
+			package: 'MauLoa-Core-Tests' with: [ spec requires: #('MauLoa-Core') ].
 		
+		spec 
+			group: 'Core' with: #('MauLoa-Core');
+			group: 'Web' with: #('MauLoa-Web');
+			group: 'Tests' with: #('MauLoa-Core-Tests');
+			group: 'all' with: #('Core' 'Web' 'Tests');
+			group: 'default' with: #('all').
+ 
 	]	
 ]
 
